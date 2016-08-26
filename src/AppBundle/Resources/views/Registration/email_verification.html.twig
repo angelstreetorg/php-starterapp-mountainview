@@ -1,0 +1,49 @@
+{% set active = 'user' %}
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block title %}Email Verification - Crowd Valley{% endblock %}
+
+{% block body %}
+    <div class="mg-page-title parallax">
+        <div class="mg-page">
+            <div class="container">
+                <div class="row">
+                    <div class="mg-404-error-txt">
+                        <div class="col-md-3">
+                            <div class="mg-404-badg pull-left">
+                                <i class="fa fa-envelope" style="font-size: 90px"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                        	<div class="row">
+								<div class="mg-404-txt-search">
+									<strong>Thank you for joining the Crowd Valley demo network. On live platforms users automatically receive an activation email containing a link that they can click to verify their email address.</strong>
+									<p>In this demo you can continue to the other pages without verifying your email address.</p>
+									<div>
+										{% if resent_email %}
+											<div class="col-md-6">		
+												<div class="alert alert-success">
+													<p>Your email has been re-sent</p>
+												</div>
+											</div>
+										{% else %}
+											<div class="col-md-6">
+												<a href="{{ path('resend_verification_email') }}" class="btn btn-main-clean btn-block"> Resend Verification Email</a>
+											</div>
+										{% endif %}
+									</div>
+									<div class="mg-404-search-form">
+										<div class="col-md-6">
+											<a href="{{ path('complete_registration') }}" class="btn btn-main"> Continue Registration Process</a>
+										</div>
+									</div>									
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

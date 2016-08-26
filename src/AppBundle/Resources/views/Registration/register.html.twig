@@ -1,0 +1,56 @@
+<form role="form" id="form_sign_up" action="{{ path('app_sign_up') }}" method="POST">
+    <div class="mg-book-form-personal">
+        <p style="color:red; display: none;" id="pError_signup"></p>
+        <h2 class="mg-sec-left-title">Register</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mg-book-form-input form-group">
+                    <label>Given Name</label>
+                    {{ form_widget(formSignUp.given_name, {'attr': {'class': 'form-control','placeholder':'', 'data-validation':'required', 'data-validation-error-msg-required':'This field is mandatory.'}}) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mg-book-form-input form-group">
+                    <label>Family Name</label>
+                    {{ form_widget(formSignUp.family_name, {'attr': {'class': 'form-control','placeholder':'', 'data-validation':'required', 'data-validation-error-msg-required':'This field is mandatory.'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mg-book-form-input form-group">
+                    <label>Password</label>
+                    {{ form_widget(formSignUp.password, {'attr': {'class': 'form-control','placeholder':'', 'data-validation':'custom', 'data-validation-error-msg-custom':'Your password must contain a minimum of 8 characters and at least one number and one upper case letter.','data-validation-regexp':'^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(.{8,30})$' }}) }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mg-book-form-input form-group">
+                    <label>Confirm Password</label>
+                    {{ form_widget(formSignUp.confirmPassword, {'attr': {'class': 'form-control','placeholder':'', 'data-validation':'confirmation', 'data-validation-confirm':'sign_up_type[password]', 'data-validation-error-msg':'Passwords do not match.'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mg-book-form-input form-group">
+                    <label>Email</label>
+                    {{ form_widget(formSignUp.email, {'attr': {'class': 'form-control','placeholder':'', 'data-validation':'email'}}) }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="agree" value="1" id="ck_agree" data-validation="required" data-validation-error-msg="Please tick the box to confirm that you have read and agree with our terms and privacy policy."> Agree to our <a href="{{ path('terms') }}" title="Terms of use" target="_blank">terms of use</a> and <a href="{{ path('privacy') }}" title="privacy policy" target="_blank">privacy policy</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        {{ form_widget(formSignUp.submit, {'id': 'btn_signUp', 'attr': {'class': 'btn btn-dark-main btn-next-tab pull-right'}, 'label': 'Next'} ) }}
+        {#<a href="#" id="btn_signUp" class="btn btn-dark-main btn-next-tab pull-right">Next</a>#}
+    </div>
+{{ form_end(formSignUp) }}

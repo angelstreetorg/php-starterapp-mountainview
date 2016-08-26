@@ -1,0 +1,82 @@
+<header class="header transp sticky"> <!-- available class for header: .sticky .center-content .transp -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/images/crowdvalley-logo.png') }}" alt="Crowd Valley"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if active is not defined %}
+                        {% set active = '' %}
+                    {% endif %}
+                    <li  class="{% if active == 'home' %}active{% endif %}"><a href="{{ path('homepage') }}">Home</a></li>
+                    <li class="dropdown {% if active == 'user' %}active{% endif %}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registration <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                        	{% if authenticated %}
+	                            <li><a href="{{ path('logout') }}">Log Out</a></li>                    	                        	
+                            	<li><a href="{{ path('email_verification') }}">Email Verification</a></li>
+                            	<li><a href="{{ path('complete_registration') }}">Complete Registration</a></li>
+                        	{% else %}
+	                            <li><a href="#modal-login" data-toggle="modal" data-target="#modal-login">Log In</a></li>                    	
+                            	<li><a href="{{ path('signup') }}">Sign Up</a></li>
+                        	{% endif %}
+                        </ul>
+                    </li>
+                    <li class="dropdown {% if active == 'profile' %}active{% endif %}">
+                        <a href="{{ path('my_profile') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('my_profile') }}">My Profile</a></li>
+                            <li><a href="{{ path('my_investments') }}">My Investments</a></li>
+                            <li><a href="{{ path('my_wallet') }}">My Wallet</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown {% if active == 'offerings' %}active{% endif %}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Offerings <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">Real Estate</a>
+                                <ul class="sub-menu list-unstyled">
+                                    <li><a href="{{ path('properties-debt') }}">Debt</a></li>
+                                    <li><a href="{{ path('properties-equity') }}">Equity</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Private Companies</a>
+                                <ul class="sub-menu list-unstyled">
+                                    <li><a href="{{ path('companies-debt') }}">Debt</a></li>
+                                    <li><a href="{{ path('companies-equity') }}">Equity</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ path('secondary_market') }}">Secondary Market</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown {% if active == 'raise_capital' %}active{% endif %}">
+                        <a href="#">Raise Capital <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('raise_capital') }}">Start Application </a></li>
+                            <li><a href="{{ path('my_applications') }}">My Applications</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown {% if active == 'contact' %}active{% endif %}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('about') }}">About </a></li>
+                            <li><a href="{{ path('terms') }}">Terms</a></li>
+                            <li><a href="{{ path('privacy') }}">Privacy Policy</a></li>
+                            <li><a href="{{ path('contact') }}">Contact</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
