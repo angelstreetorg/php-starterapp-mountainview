@@ -16,7 +16,7 @@ curl -s http://getcomposer.org/installer | php
 php composer.phar install
 ```
 
-3) Copy the file ~/php-starterapp-kansascity/app/config/parameters.yml.dist to ~/php-starterapp-kansascity/app/config/parameters.yml
+3) Copy the file ~/php-starterapp-mountainview/app/config/parameters.yml.dist to ~/php-starterapp-mountainview/app/config/parameters.yml
 
 4) Enter your Crowd Valley credentials, which would have been provided to you by your Crowd Valley contact or when setting up
 a developer account on www.crowdvalley.com, in the new `parameters.yml` file:
